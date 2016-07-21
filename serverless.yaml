@@ -1,0 +1,10 @@
+service: aws-nodejs
+provider: aws
+runtime: nodejs4.3
+
+functions:
+    cron:
+        handler: handler.run
+        events:
+          # Run the task on the first day of every month at midnight
+          - schedule: cron(0 0 1 * * *)
